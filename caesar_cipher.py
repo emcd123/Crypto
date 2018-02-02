@@ -1,4 +1,5 @@
 from cs402 import AffineCipher
+from cs402 import isEnglish
 
 C = AffineCipher
 C.setAlphabet("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMONPQRSTUVWXYZ0123456789.,;: \n")
@@ -7,10 +8,11 @@ C.setAlphabet("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMONPQRSTUVWXYZ0123456789.,;
 def CaesarDecipher(C):
   for i in range(48,58):
     C.setDecipherKey([1,i])
-    print(C.decipher("cipher.txt"))
-    print((str(i)))
-    print( "\n")
-#CaesarDecipher(C)
+    txt = C.decipher("cipher.txt")
+    if isEnglish(txt):
+      print( "\n")
+      print((str(i)))
+CaesarDecipher(C)
 
 def CaesarEncipher(C):
   C.setEncipherKey([1,-56])
