@@ -10,7 +10,6 @@ def CaesarDecipher(C):
     C.setDecipherKey([1,i])
     txt = C.decipher("cipher.txt")
     if isEnglish(txt):
-      print( "\n")
       print((str(i)))
 CaesarDecipher(C)
 
